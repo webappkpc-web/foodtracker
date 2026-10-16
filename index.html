@@ -16,18 +16,18 @@
 </head>
 <body class="bg-white flex flex-col h-screen overflow-hidden select-none">
 
-    <!-- ส่วนบน: ตรึงไว้ (Month Switcher) -->
-    <header class="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between shadow-sm z-10 shrink-0">
-        <button id="prevMonthBtn" class="border border-blue-600 px-6 py-1.5 text-blue-600 font-bold hover:bg-blue-50 rounded transition text-lg">&lt;</button>
-        <div id="currentMonthDisplay" class="text-xl font-bold text-gray-800">ต.ค.-69</div>
-        <button id="nextMonthBtn" class="border border-blue-600 px-6 py-1.5 text-blue-600 font-bold hover:bg-blue-50 rounded transition text-lg">&gt;</button>
+    <!-- ส่วนบน: ตรึงไว้ (Month Switcher) - ปรับลด Padding ให้แคบลง -->
+    <header class="bg-white border-b border-gray-100 px-4 py-1.5 flex items-center justify-between shadow-sm z-10 shrink-0">
+        <button id="prevMonthBtn" class="border border-blue-600 px-4 py-1 text-blue-600 font-bold hover:bg-blue-50 rounded transition text-base">&lt;</button>
+        <div id="currentMonthDisplay" class="text-lg font-bold text-gray-800">ต.ค.-69</div>
+        <button id="nextMonthBtn" class="border border-blue-600 px-4 py-1 text-blue-600 font-bold hover:bg-blue-50 rounded transition text-base">&gt;</button>
     </header>
 
     <!-- ส่วนกลาง: เลื่อนขึ้นลงได้ (Food List & Stars) -->
-    <main class="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+    <main class="flex-1 overflow-y-auto px-4 py-2 space-y-2">
         <!-- ตารางแสดงรายการอาหาร -->
         <div class="max-w-md mx-auto">
-            <div class="grid grid-cols-12 text-blue-600 font-bold pb-2 border-b border-gray-200 text-sm">
+            <div class="grid grid-cols-12 text-blue-600 font-bold pb-1.5 border-b border-gray-200 text-sm">
                 <div class="col-span-4">รายการ</div>
                 <div class="col-span-3">หมวด</div>
                 <div class="col-span-5 text-left">ดาว</div>
@@ -39,9 +39,9 @@
         </div>
     </main>
 
-    <!-- ส่วนล่าง: ตรึงไว้ (Add Item Button) -->
-    <footer class="bg-white border-t border-gray-100 p-4 flex justify-center shrink-0 z-10">
-        <button id="openModalBtn" class="border border-blue-600 text-blue-600 hover:bg-blue-50 font-medium px-6 py-2 rounded-lg transition shadow-sm text-sm">
+    <!-- ส่วนล่าง: ตรึงไว้ (Add Item Button) - ปรับลด Padding ให้แคบลง -->
+    <footer class="bg-white border-t border-gray-100 px-4 py-2.5 flex justify-left shrink-0 z-10">
+        <button id="openModalBtn" class="border border-blue-600 text-blue-600 hover:bg-blue-50 font-medium px-5 py-1.5 rounded-lg transition shadow-sm text-sm">
             เพิ่มรายการอาหาร/ขนม/เครื่องดื่ม
         </button>
     </footer>
@@ -104,9 +104,9 @@
                 <div class="flex items-center justify-between pt-3">
                     <button type="button" id="closeEditModalBtn" class="text-gray-600 hover:text-gray-800 text-sm font-medium">ยกเลิก</button>
                     <div class="flex space-x-2">
-                        <button type="button" id="decreaseStarBtn" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition shadow-sm">ลดดาว</button>
-                        <button type="button" id="deleteFoodBtn" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition shadow-sm">ลบ</button>
-                        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition shadow-sm">บันทึก</button>
+                        <button type="button" id="decreaseStarBtn" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition shadow-sm">ลดดาว</button>
+                        <button type="button" id="deleteFoodBtn" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition shadow-sm">ลบ</button>
+                        <button type="submit" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition shadow-sm">บันทึก</button>
                     </div>
                 </div>
             </form>
@@ -202,7 +202,6 @@
                     foodItems.push({ id: docSnap.id, ...docSnap.data() });
                 });
 
-                // เรียงลำดับข้อมูลตามชื่อรายการ (ภาษาไทยและอังกฤษ)
                 foodItems.sort((a, b) => a.name.localeCompare(b.name, 'th'));
 
                 const logsMap = {};
